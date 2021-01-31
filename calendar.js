@@ -1,11 +1,11 @@
-const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const startYear = 1753;
-const endYear = 2021;
-const month = 0;
-const year = 0;
-const selectDays = new Array();
-const mousedown = false;
-const mousemove = false;
+let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+let startYear = 1753;
+let endYear = 2021;
+let month = 0;
+let year = 0;
+let selectDays = new Array();
+let mousedown = false;
+let mousemove = false;
 
 const loadCalendarMonths = () => {
     for (let i = 0; i < months.length; i++) {
