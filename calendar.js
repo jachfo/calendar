@@ -63,5 +63,53 @@ const loadCalendarDays = () => {
         d.className = "day";
         d.innerHTML = tmp;
         d.dataset.day = tmp;
+
+        d.addEventListener('click', function() {
+            this.classList.toggle('selected');
+
+            !selectedDays.includes(this.dataset.day) ? selectedDays.push(this.dataset.day) : selectedDays.splice(selectedDays.indexOf(this.dataset.day), 1);
+        });
+
+        d.addEventListener('mousemove', function(e) {
+            e.preventDefault();
+            if (mousedown) {
+                this.classList.add('selected');
+                
+                if (!selectedDays.includes(this.dataset.day)) selected.Days.push(this.dataset.day);
+            } 
+        });
+
+        d.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+            mousedown = false;
+        });
+
+        d.addEventListener('mouseup', function(e) {
+            e.preventDefault();
+            mousedown = false;
+        });
+
+        document.getElementById("calendarDays").appendChild(d);
     }
-}
+
+    const clear = document.createElement("div");
+    clear.className = "clear";
+    document.getElementById("calendarDays").appendChild(clear);
+};
+
+const daysInMonth = (month, year) => {
+    const d = new Date(year, month + 1, 0);
+    return d.getDate();
+};
+
+window.addEventListener('load', function () {
+    const date = new Date();
+    month = date.getMonth();
+    year = date.getFullYear();
+    document.getElementById("curMonth").innerHTML = months[month];
+    document.getElementById("curYear").innerHTML = year;
+    loadCalendarMonths();
+    loadCalendarYears();
+    loadCalendarDays();
+});
+
