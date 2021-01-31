@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <main class="calendar" id="calendar">
+            <section class="calendar-btn month-btn" onclick="$('#months').toggle('fast')">
+                <span id="curMonth"></span>
+                <div id="months" class="months dropdown"></div>
+            </section>
+
+            <section class="calendar btn year btn" onclick="$('#years').toggle('fast')">
+                <span id="curYear"></span>
+                <div id="years" class="years dropdown"></div>
+            </section>
+
+            <section class="clear"></section>
+
+            <section class="calendar-dates">
+                <div class="days">
+                    <div class="day label">SUN</div>
+                    <div class="day label">MON</div>
+                    <div class="day label">TUE</div>
+                    <div class="day label">WED</div>
+                    <div class="day label">THU</div>
+                    <div class="day label">FRI</div>
+                    <div class="day label">SAT</div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div id="calendarDays" class="days"></div>
+            </section>
+        </main>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="calendar.js" async defer></script>
+    </body>
+</html>
